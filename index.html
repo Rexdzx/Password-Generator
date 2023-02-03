@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+    </script>
+    <title>Password Generator</title>
+</head>
+
+<body>
+
+    <div class="container mt-5 border" style="border-radius: 10px;">
+        <h1 class="text-center">Pasword Generator</h1>
+        <main class="my-5">
+            <label for="panjang_password" class="form-label">Panjang Password (<span
+                    id="panjang_password_counter">5</span>) :
+            </label>
+            <input type="range" class="form-range" min="2" max="50" value="5" id="panjang_password">
+            <label for="firstCheckbox" class="form-label">Isian Password (Pastikan Tercentang Salah Satu) :
+            </label>
+            <div class="form-check" id="firstCheckbox">
+                <input class="form-check-input" type="checkbox" value="" id="kapital_az">
+                <label class="form-check-label" for="kapital_az">
+                    A-Z
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="kecil_az">
+                <label class="form-check-label" for="kecil_az">
+                    a - z
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="angka">
+                <label class="form-check-label" for="angka">
+                    0 - 9
+                </label>
+            </div>
+            <div class="mt-2 d-flex" style="gap: 6px;">
+                <button type="button" class="btn btn-primary" id="generate_password">Generate</button>
+                <button type="button" class="btn btn-danger" id="hapus_hasil">Hapus Hasil</button>
+            </div>
+
+            <p class="form-label mt-3"> Hasil :</p>
+            <p class="h3 bg-body-tertiary text-secondary p-2" id="hasil_password">(Kosong)</p>
+
+    </div>
+    </main>
+    </div>
+    <script type="text/javascript">
+        const panjang_password_counter = document.getElementById('panjang_password_counter');
+        const panjang_password = document.getElementById('panjang_password');
+
+        panjang_password.addEventListener('change', function (event) {
+            panjang_password_counter.innerText = panjang_password.value;
+        });
+
+        document.getElementById('hapus_hasil').addEventListener('click', function (event) {
+            document.getElementById('hasil_password').innerText = '(Kosong)';
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
